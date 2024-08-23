@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+BE+WAL:wght@100..400&display=swap" rel="stylesheet">
+    
+<script type="module" src="https://md-block.verou.me/md-block.js"></script>
+<title>Content Generator</title>
+</head>
+<body>
+    <div class="container">
+         <h1 id="logo">Writing Genie</h1>
+        <form method="POST">
+            <input type="text" name="topic" placeholder="Enter your topic here" required>
+            <select name="content_type" required>
+                <option value="article">Article</option>
+                <option value="blog post">Blog Post</option>
+                <option value="social media post">Social Media Post</option>
+            </select>
+            <button type="submit">Generate Content</button>
+        </form>
+        
+        {% if content %}
+            <div class="result">
+                <u><h2>Generated {{ content_type }} on "{{ topic }}":</h2></u>
+                <md-block>{{ content }}</md-block>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

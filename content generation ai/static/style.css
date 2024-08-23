@@ -1,0 +1,67 @@
+body {
+    font-family: "Playwrite BE WAL", cursive;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    background-color: #FBEAEB;
+}
+
+.container {
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+::placeholder{
+    color: #2F3C7E;
+}
+
+input[type="text"], select {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid #2F3C7E;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2F3C7E;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Playwrite BE WAL", cursive;
+    font-size: 1rem;
+}
+
+.result {
+    margin-top: 20px;
+    font-family: "Overpass Mono", monospace;
+}
+
+.result h2 {
+    color: #2F3C7E;
+}
+
+form{
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+select{
+    color: #2F3C7E;
+    font-family:  "Indie Flower" , cursive;
+
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #2F3C7E;
+}
