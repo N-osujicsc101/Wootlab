@@ -1,0 +1,177 @@
+/* Existing styles... */
+body {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #0077b6;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-label{
+   margin-left: 18px;
+}
+
+
+.chat-history {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fafafa;
+    border-radius: 15px;
+}
+
+.chat-message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.chat-message.user-message {
+    justify-content: flex-end;
+}
+
+.chat-message.bot-message {
+    justify-content: flex-start;
+}
+
+.chat-bubble {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 1rem;
+    line-height: 1.4;
+    position: relative;
+}
+
+.user-message .chat-bubble {
+    background-color: #0077b6;
+    color: white;
+    border-bottom-right-radius: 0;
+}
+
+.bot-message .chat-bubble {
+    background-color: #e0e0e0;
+    color: black;
+    border-bottom-left-radius: 0;
+}
+
+textarea.form-control {
+    width: 90%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    resize: none;
+    margin-left: 18px;
+    margin-top: 10px;
+}
+
+button.btn {
+    width: 50%;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 5.5rem;
+    transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+    background-color: #0077b6;
+}
+
+/* New styles for the popup */
+#chatbot-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    height: 600px; /* Adjusted to fit within the viewport */
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    overflow: auto; /* Allows scrolling if content overflows */
+    z-index: 1000;
+}
+
+.popup-header {
+    background-color: #0077b6;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+}
+
+#close-chatbot {
+    background: none;
+    border: none;
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    animation: bounce 2s infinite; /* Apply bounce animation */
+}
+
+/* #chatbot-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+} */
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
