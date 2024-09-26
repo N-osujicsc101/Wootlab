@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Language Translator</h1>
+        <form id="translate-form" method="POST">
+            <div class="form-group">
+                <label for="source_lang">Translate From:</label>
+                <select id="source_lang" name="source_lang" required>
+                    <option value="english">English</option>
+                    <option value="igbo">Igbo</option>
+                    <option value="hausa">Hausa</option>
+                    <option value="yoruba">Yoruba</option>
+                    <option value="korean">Korean</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="target_lang">Translate To:</label>
+                <select id="target_lang" name="target_lang" required>
+                    <option value="english">English</option>
+                    <option value="igbo">Igbo</option>
+                    <option value="hausa">Hausa</option>
+                    <option value="yoruba">Yoruba</option>
+                    <option value="korean">Korean</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="text">Enter Text:</label>
+                <textarea id="text" name="text" rows="4" required></textarea>
+            </div>
+            <button type="submit">Translate</button>
+        </form>
+
+        <h2>Translation:</h2>
+        <p id="translated-text">
+            {% if translated_text %}
+            <md-block>{{ translated_text }}</md-block>
+            {% endif %}
+        </p>
+    </div>
+</body>
+</html>

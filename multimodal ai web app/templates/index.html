@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Montserrat:ital@0;1&family=Playpen+Sans&display=swap"
+    rel="stylesheet">
+  <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
+  <title>Upload Image and Prompt</title>
+</head>
+
+<body background="static/Best Astrology Peel and Stick Wallpaper.jpeg">
+
+  <h1>Gemini AI Simulation</h1>
+
+  {% if result_text or uploaded_media_url %}
+  <div class="generated-stuff">
+  
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    
+    {% if uploaded_media_url %}
+    <h2>Uploaded Media:</h2>
+
+    {% if uploaded_media_url.endswith('.png') or uploaded_media_url.endswith('.jpg') or
+    uploaded_media_url.endswith('.jpeg') or uploaded_media_url.endswith('.gif') %}
+    
+    <img src="{{ uploaded_media_url }}" alt="Uploaded Image" style="max-width: 200px" />
+
+    {% elif uploaded_media_url.endswith('.mp4') or uploaded_media_url.endswith('.mpeg') %}
+    
+    <video controls style="max-width: 300px">
+      <source src="{{ uploaded_media_url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    {% elif uploaded_media_url.endswith('.pdf') %}
+   
+    <img src="/static/pdf2.jpg" alt="PDF Icon" style="max-width: 100px;">
+
+    {% elif uploaded_media_url.endswith('.csv') %}
+   
+    <img src="/static/csv2.png" alt="CSV Icon" style="max-width: 100px;">
+
+    {% endif %}
+    {% endif %}
+
+
+
+    
+    {% if result_text %}
+    <h2>Generated Response:</h2>
+    <md-block>
+      <p>{{ result_text }}</p>
+    </md-block>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  
+  <form method="POST" enctype="multipart/form-data">
+    <div class="input-container">
+      <textarea name="prompt" rows="4" cols="50" placeholder="Enter prompt here ..."></textarea>
+
+      <button type="submit">Enter</button>
+
+      <input type="file" id="file" name="file" accept="image/*, video/*" required />
+      <label for="file" class="file-icon">
+        <i class="fa fa-paperclip"></i>
+      </label>
+    </div>
+  </form>
+</body>
+
+</html>
